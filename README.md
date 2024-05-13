@@ -1,7 +1,8 @@
 # Role of Transposable elements in transcriptomic response to Ocean Acidification in coral reef fish
 Part of the thesis is on TE transcriptomics for ocean acidification.
 
-Overview
+Overview:
+
 Climate change is an unavoidable threat to the global environment.
 Many studies have confirmed that climate change causes ocean warming and ocean acidification. 
 The rapidly changing environment will likely continue to affect the oceans, thus pushing marine organisms to adapt to new harsh conditions. 
