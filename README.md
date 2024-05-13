@@ -8,7 +8,7 @@ Climate change is an unavoidable threat to the global environment.
 Authors:
 Kaisar Dauyey 
 
-![Coral reef snapshot at the Aka island, Kerama National Park](images/G0182919.jpg)
+![Coral reef snapshot at the Aka island, Kerama National Park](images/coral-aka-kame.png)
 
 
 April 17, 2024
