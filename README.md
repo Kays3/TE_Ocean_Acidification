@@ -3,7 +3,11 @@ Part of the thesis is on TE transcriptomics for ocean acidification.
 
 Overview
 Climate change is an unavoidable threat to the global environment.
- Many studies have confirmed that climate change causes ocean warming and, inevitably, a rise in acidity, events like coral bleaching, and loss of biodiversity1. The rapidly changing environment will likely continue to affect the oceans, thus pushing marine organisms to adapt to new harsh conditions. In particular, coral reef fish crucial for the ocean ecosystem may need to develop adaptation mechanisms to rising ocean acidity or go extinct.
+Many studies have confirmed that climate change causes ocean warming and ocean acidification. 
+The rapidly changing environment will likely continue to affect the oceans, thus pushing marine organisms to adapt to new harsh conditions. 
+In particular, coral reefs and marine organisms depending on coral reefs are threatened by climate change.
+I'm interested in how ocean acidification affects brain gene networks in marine organisms.
+This study is focused on spiny damselfish brain transcriptome.
  
 Authors:
 Kaisar Dauyey 
@@ -11,9 +15,7 @@ Kaisar Dauyey
 ![Coral reef snapshot at the Aka island, Kerama National Park](images/coral-aka-kame.png)
 
 
-Photo taken at Aka island, Keramashoto National Park.
-
-April 17, 2024
+Photo taken at Aka Island, Keramashoto National Park, on April 17, 2024
 
 Thank you for visiting this project!
 
@@ -21,7 +23,7 @@ Thank you for visiting this project!
 
 1. Raw data preparation from HTseq output
 2. R scripts
-3. Supplemetary data
+3. Supplementary data
 4. Original figures
 
 
