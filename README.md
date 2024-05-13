@@ -16,9 +16,10 @@ Coral bleaching in American Samoa, 2015.
 # Contents
 
 1. Raw data preparation from HTseq output
-2. DeseQ2 R scripts
-3. Differential expression and Gene Ontology 
-4. Visualization via heatmaps 
+2. R scripts
+3. Supplemetary data
+4. Original figures
+
 
 ## License
 All files are licensed under the [MIT license](http://opensource.org/licenses/MIT). This project may not be copied, modified, or distributed except according to those terms.

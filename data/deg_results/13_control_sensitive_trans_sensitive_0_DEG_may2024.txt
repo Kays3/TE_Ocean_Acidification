@@ -1,0 +1,1 @@
+Apoly_gene	baseMean	log2FoldChange	lfcSE	stat	pvalue	padj	gene_id	gene_symbol	function_protein
