@@ -8,10 +8,11 @@ Climate change is an unavoidable threat to the global environment.
 Authors:
 Kaisar Dauyey 
 
-![alt text](https://d2zmi9say0r1yj.cloudfront.net/OceanImageBank_TheOceanAgency_Bleaching_55.jpg)
+![Coral reef snapshot at the Aka island, Kerama National Park](images/G0182919.jpg)
 
-Coral bleaching in American Samoa, 2015.
-(R) The Ocean Agency
+
+April 17, 2024
+Thank you for visiting this project!
 
 # Contents
 
