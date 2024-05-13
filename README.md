@@ -8,9 +8,10 @@ Climate change is an unavoidable threat to the global environment.
 Authors:
 Kaisar Dauyey 
 
-![alt text](https://i.guim.co.uk/img/media/6849290b14a2c50cc2a0ccee37b02830563de367/2_0_2877_1726/master/2877.jpg)
+![alt text](https://d2zmi9say0r1yj.cloudfront.net/OceanImageBank_TheOceanAgency_Bleaching_55.jpg)
 
-According to a government study, <sub><sup>Coral in the Sekisei lagoon in Okinawa has turned brown and is covered with algae, The Guardian. (R) The Ocean Agency <sub><sup>
+Coral bleaching in American Samoa, 2015.
+<sub><sup>(R) The Ocean Agency <sub><sup>
 
 # Contents
 
