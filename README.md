@@ -11,7 +11,7 @@ Kaisar Dauyey
 ![alt text](https://d2zmi9say0r1yj.cloudfront.net/OceanImageBank_TheOceanAgency_Bleaching_55.jpg)
 
 Coral bleaching in American Samoa, 2015.
-<sub><sup>(R) The Ocean Agency <sub><sup>
+(R) The Ocean Agency
 
 # Contents
 
