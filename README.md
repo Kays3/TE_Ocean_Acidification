@@ -1,4 +1,4 @@
-# Role of Transposable elements in transcriptomic response to Ocean Acidification in coral reef fish
+# The role of transposable elements in response to ocean acidification in the coral reef fish brain transcriptomes
 Part of the thesis is on TE transcriptomics for ocean acidification.
 
 Overview:
