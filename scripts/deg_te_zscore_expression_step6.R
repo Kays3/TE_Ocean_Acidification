@@ -19,12 +19,12 @@ options(width=100)
 
 #rm(list=ls())
 getwd()
-setwd("data/")
+setwd("../data/")
 
 
 
 # Reload the DESeqDataSet object from the RDS file
-dds <- readRDS("reference_files/dds_object_72transcripts_new.rds")
+#dds <- readRDS("reference_files/dds_object_72transcripts_new.rds")
 te_deg_all<-read.csv("reference_files/TE_DEG_heatmap.csv")
 
 te_deg_all2<- te_deg_all %>% distinct(Apoly_gene, function_protein, .keep_all = TRUE)

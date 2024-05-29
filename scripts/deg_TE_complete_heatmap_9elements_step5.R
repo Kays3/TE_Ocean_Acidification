@@ -3,6 +3,9 @@
 # DESeq2 for 72 transcriptomes
 # Apoly
 # May 13, 2024
+# revised May 27, 2024 - TBD
+# clustered along Contrasts, legend with whole numbers
+
 # Author KD
 
 
@@ -11,7 +14,7 @@ getwd()
 
 
 #gdrive beholder
-setwd("data/")
+setwd("TE_Ocean_Acidification/data/")
 
 library(ggplot2)
 library(reshape2)  # For melting your data frame if it's not already in long format
@@ -19,6 +22,7 @@ library(reshape2)  # For melting your data frame if it's not already in long for
 library(dplyr)
 library(tidyr)
 library(readr)
+library(RColorBrewer)
 library(pheatmap)
 
 
@@ -27,7 +31,8 @@ library(pheatmap)
 # using filter funtion search for "transpos"
 
 data <- read.csv("reference_files/TE_DEG_heatmap.csv")
-data1<-as.data.frame(cbind(data$function_protein,data$# Assuming 'ComparisonGroup' is the column indicating the group each element belongs to
+data1<-as.data.frame(cbind(data$function_protein,data$Contrast))
+# Assuming 'Contrast' is the column indicating the group each element belongs to
 
 
 element_counts2 <- data %>% count(function_protein,Contrast) %>% spread(key = function_protein, value = n, fill = 0) 
@@ -49,11 +54,84 @@ pheatmap(count_matrix,
          show_colnames = TRUE,
          main = "Heatmap of Transposable Elements Counts")
 
-#need to reverse
-
-# Assuming 'data' is already loaded and transformed
-library(reshape2)  # For melting the data matrix
+#need to try this
+# Ensure the data is in matrix format
+# Load necessary libraries
 library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(tibble)
+
+# Ensure the data is in matrix format
+count_matrix <- as.matrix(element_counts2[-1])  # Exclude any non-numeric columns if present
+rownames(count_matrix) <- element_counts2[[1]]  # Set the first column as row names if it represents the element types
+
+# Perform hierarchical clustering
+row_clust <- hclust(dist(count_matrix))
+col_clust <- hclust(dist(t(count_matrix)))
+
+# Convert to long format for ggplot2
+count_matrix_long <- as.data.frame(count_matrix) %>%
+  rownames_to_column("TE_family") %>%
+  pivot_longer(-TE_family, names_to = "sample_name", values_to = "count")
+
+# Custom ordering based on presence of "tol" or "sens"
+custom_order <- c(grep("tol", rownames(count_matrix), value = TRUE), 
+                  grep("sens", rownames(count_matrix), value = TRUE), 
+                  setdiff(rownames(count_matrix), c(grep("tol", rownames(count_matrix), value = TRUE), 
+                                                    grep("sens", rownames(count_matrix), value = TRUE))))
+
+# Extract ordered names based on clustering and custom order
+ordered_TE_families <- intersect(custom_order, rownames(count_matrix)[row_clust$order])
+ordered_conditions <- colnames(count_matrix)[col_clust$order]
+
+# Factor the names based on the clustering and custom order
+count_matrix_long$TE_family <- factor(count_matrix_long$TE_family, levels = ordered_TE_families)
+count_matrix_long$sample_name <- factor(count_matrix_long$sample_name, levels = ordered_conditions)
+
+# Create a new column for custom colors based on "tol" or "sens"
+count_matrix_long$color_group <- ifelse(grepl("tol", count_matrix_long$TE_family), "Tolerant parents",
+                                        ifelse(grepl("sens", count_matrix_long$TE_family), "Sensitive parents", "other"))
+
+# Define custom colors
+custom_colors <- c("tol" = "red", "sens" = "blue", "other" = "grey80")
+
+# Create the heatmap with ggplot2
+gg_heatmap <- ggplot(count_matrix_long, aes(x = sample_name, y = TE_family)) +
+  geom_tile(aes(fill = count), color = "white") +
+  geom_text(aes(label = ifelse(count == 0, "", round(count, 0))), size = 3, color = "black") +
+  scale_fill_gradientn(colors = c("white", "lightblue", "blue", "red"), 
+                       values = scales::rescale(c(0, 1, 2)), 
+                       breaks = c(0, 1, 2), 
+                       limits = c(0, 2), 
+                       guide = "colorbar") +
+  facet_wrap(~ color_group, scales = "free_y", ncol = 1, strip.position = "left") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 10),
+    axis.text.y = element_text(size = 10),
+    axis.title = element_text(size = 12, face = "bold"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10),
+    strip.text.y = element_text(size = 12, face = "bold"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  ) +
+  labs(title = "Heatmap of Transposable Elements Counts", x = "TE Family", y = "Fish Comparison", fill = "Count")
+
+# Display the plot
+print(gg_heatmap)
+
+# Save the heatmap
+ggsave("expression_heatmap_clustered.png", plot = gg_heatmap, width = 12, height = 10, dpi = 300)
+
+
+
+# black and white further - no clustering
+# Assuming 'data' is already loaded and transformed
+
+data<-as.data.frame(count_matrix)
 
 # Assuming 'count_matrix' is your matrix
 # Convert the matrix to a long format data frame
@@ -118,8 +196,17 @@ heatmap_plot <- ggplot(data_long, aes(x = Condition, y = TransposableElement, fi
 # Print the plot
 print(heatmap_plot)
 
+#clustered
+
+
+
+
 
 # Save the heatmap to a file in a high-quality format
 #ggsave("heatmap_transposable_elements.png", plot = heatmap_plot, width = 10, height = 6, device = "png")
+
+#try
+
+
 
 rm(list=ls())

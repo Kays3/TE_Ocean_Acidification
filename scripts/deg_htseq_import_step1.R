@@ -1,7 +1,8 @@
 # DESeq2 for 72 transcriptomes
 # Apoly
 # done normalization
-# May 13
+# May 13 submitted
+# revised May 27, 2024
 # Author KD
 
 library(DESeq2)
@@ -17,11 +18,11 @@ options(width=100)
 #rm(list=ls())
 getwd()
 
-datadir<-"data/htseq_apoly"
+datadir<-"../data/htseq_apoly"
 
-refere<-read.table("data/reference_files/neo_gene_ref_apoly.txt", header = T)
+refere<-read.table("../data/reference_files/neo_gene_ref_apoly.txt", header = T)
 
-new_refere<-read.delim("data/reference_files/apoly_gene_protein_refere.txt", header = T)
+new_refere<-read.delim("../data/reference_files/apoly_gene_protein_refere.txt", header = T)
 
 phdata<-data.frame(fname=list.files(path=datadir,pattern="*Aligned.sortedByCoord.out.counts.txt"),stringsAsFactors=FALSE)
 head(phdata)
@@ -33,7 +34,7 @@ head(phdata)
 
 
 # Read in the sample description file
-sample_desc <- read.table("data/reference_files/Apoly_CO2_samplesheet.2021.txt", header=TRUE, sep="\t")
+sample_desc <- read.table("../data/reference_files/Apoly_CO2_samplesheet.2021.txt", header=TRUE, sep="\t")
 
 sample_desc <- sample_desc[-c(123, 128, 216),]
 
